@@ -19,11 +19,11 @@ function TodoApp() {
       <h1>TodoApp</h1>
         <div>
           <input type="text" placeholder="Enter the title" onChange={handleChangeTitle} name="title" value={userForm.title}></input>
-          <h1>{userForm.title}</h1>
+        
         </div>
         <div>
           <textarea type="text" placeholder="Enter the Detials" onChange={handleChangeDetails} name="details" value={userForm.details}></textarea>
-          <h1>{userForm.details}</h1>
+        
         </div>
 
         <button type="submit" >Add</button>
