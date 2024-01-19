@@ -38,22 +38,42 @@ body{
   padding: 10px;
   box-sizing: border-box;
   height: 100px;
+  color: grey;
 }
 
 ul{
   text-align: left;
   padding: 0;
+  background-color:white;
+  border-radius: 5px;
 
 }
 i{
   text-align: right;
   flex: 1;
+  
+}
+.deleteicon{
+  color:grey;
+
+}
+.deleteicon:hover{
+  color:red ;
+}
+
+.tickicon{
+  color: chartreuse;
 }
 ul li{
-  display: flex;
+
   list-style: none;
-  background-color:white;
+  
   padding: 15px;
   margin-bottom: 10px;
-  border-radius: 5px;
+  
+
+}
+.icons{
+  display: flex;
+  flex-direction: row;
 }
