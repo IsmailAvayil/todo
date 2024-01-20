@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext} from "react";
 import "./TodoApp.css";
 import { AppContext } from "../../ReactContext/AppContext";
 
@@ -11,10 +11,23 @@ function TodoApp() {
     handleSubmit,
     setUserData,
   } = useContext(AppContext);
+
   const deleteItem = (item) => {
-    const d = userData.filter((obj, index) => index !== item);
-    setUserData(d);
+    const filteredData = userData.filter((obj, index) => index !== item);
+    setUserData(filteredData);
   };
+
+  const handleChangeStatus = (id) => {
+    const com = userData.map((itm, index) => {
+      if (index === id) {
+        return { ...itm, status: !itm.status };
+      }
+      console.log(itm.status);
+      return itm;
+    });
+    setUserData(com);
+  };
+
   return (
     <div className="todo-container">
       <form className="user-input" onSubmit={handleSubmit}>
@@ -28,6 +41,7 @@ function TodoApp() {
             value={userForm.title}
           ></input>
         </div>
+
         <div>
           <textarea
             type="text"
@@ -38,19 +52,18 @@ function TodoApp() {
           ></textarea>
         </div>
         <div>
-    
-        <button type="submit" className="ui green button">Add</button>
-      
+          <button type="submit" className="ui green button">
+            Add
+          </button>
         </div>
-
-      
       </form>
+
       {userData &&
         userData.map((obj, index) => (
-          <ul>
+          <ul key={index}>
             <li>
-              <div>
-                <h3>{obj.title}</h3>
+              <div className="content">
+                <h2>{obj.title}</h2>
                 <p>{obj.details}</p>
               </div>
               <div className="icons">
@@ -58,8 +71,23 @@ function TodoApp() {
                   className="fa-solid fa-trash deleteicon"
                   onClick={() => deleteItem(index)}
                 ></i>
-                <i class="fa-solid fa-check tickicon"></i>
-                <p>completed</p>
+
+                <button
+                  onClick={() => {
+                    handleChangeStatus(index);
+                  }}
+                  className="ui mini toggle button active"
+                >
+                  {obj.status ? <p>completed</p> : <p>complete</p>}
+                </button>
+                <div className="completed-container">
+                  <i className="fa-solid fa-check tickicon"></i>
+                  {obj.status ? (
+                    <p id="complete-text">completed</p>
+                  ) : (
+                    <p id="incomplete-text">not completed</p>
+                  )}
+                </div>
               </div>
             </li>
           </ul>

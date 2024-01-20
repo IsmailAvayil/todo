@@ -1,38 +1,33 @@
-body{
+body {
   font-family: sans-serif;
-  margin:0;
-  background-color:#056679;
+  margin: 0;
+  background-color: #056679;
 }
 
-.todo-container{
-
- 
+.todo-container {
   width: 500px;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
-
 }
 
-.user-input{
+.user-input {
   background-color: #ececec;
   padding: 18px;
   border-radius: 10px;
 }
 
-
-.user-input input{
+.user-input input {
   border-radius: 5px;
   border: 1px solid silver;
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  color:grey
-
+  color: grey;
 }
-.user-input textarea{
+.user-input textarea {
   width: 100%;
   border-radius: 5px;
   padding: 10px;
@@ -41,39 +36,58 @@ body{
   color: grey;
 }
 
-ul{
+.content {
+  background-color: #3a403c;
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.content h2 {
+  color: #16de4b;
+}
+ul {
   text-align: left;
   padding: 0;
-  background-color:white;
+  background-color: #121713;
   border-radius: 5px;
-
-}
-i{
-  text-align: right;
-  flex: 1;
-  
-}
-.deleteicon{
-  color:grey;
-
-}
-.deleteicon:hover{
-  color:red ;
 }
 
-.tickicon{
+#complete-text {
+  color: #ececec;
+}
+
+#incomplete-text {
+  color: #e31b1b;
+}
+.deleteicon {
+  color: grey;
+  cursor: pointer;
+}
+.deleteicon:hover {
+  color: red;
+}
+
+.tickicon {
   color: chartreuse;
+  cursor: pointer;
 }
-ul li{
-
+ul li {
   list-style: none;
-  
+  margin: 10px;
   padding: 15px;
   margin-bottom: 10px;
-  
-
 }
-.icons{
+
+.completed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.icons {
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
