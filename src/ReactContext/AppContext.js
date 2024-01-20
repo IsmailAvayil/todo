@@ -1,5 +1,16 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 export const AppContext = createContext();
+
+const getLocalItems=()=>{
+  let list=localStorage.getItem("lists")
+  if (list){
+    return JSON.parse(localStorage.getItem("lists"))
+  }
+  else{
+    return [];
+  }
+
+}
 
 function AppContextProvider(props) {
   const [userForm, setuserForm] = useState({
@@ -8,8 +19,18 @@ function AppContextProvider(props) {
     status: false,
   });
 
+
   const [completed, setCompleted] = useState([]);
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState(getLocalItems);
+
+
+  useEffect(()=>{
+    localStorage.setItem("lists", JSON.stringify(userData));
+  }, [userData]);
+
+
+
+
 
   const handleChangeTitle = (event) => {
     setuserForm({ ...userForm, title: event.target.value });
