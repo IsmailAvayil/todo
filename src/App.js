@@ -5,9 +5,7 @@ function App() {
   return (
     <AppContextProvider>
       <div className="App">
-        <TodoApp/>
-        
-      
+        <TodoApp />
       </div>
     </AppContextProvider>
   );
